@@ -45,3 +45,20 @@ select customers.customerName, customers.customerNumber,orders.customerNumber fr
 full join customers on customers.customerNumber = orders.customerNumber
 order by customers.customerName;
 
+-- join examples
+select  count(employees.employeeNumber),offices.officeCode as NumberOfEmployees from offices
+left join employees on offices.officeCode = employees.officeCode
+group by employeeNumber;
+
+-- The following SQL statement lists the number of creditlimit in each country. Only include countries with more than 5 customers:
+select count(creditLimit) as number_of_creditlimit ,country  from customers
+group by country
+having count(creditLimit) > 5;
+
+-- The following SQL statement lists the number of customers in each country, sorted high to low (Only include countries with more than 5 customers):
+select count(creditLimit) as number_of_creditlimit,country from customers
+group by country
+having count(creditLimit)>5 
+order by count(creditLimit) desc;
+
+
